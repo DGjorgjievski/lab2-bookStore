@@ -1,14 +1,17 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { About, Books, Home } from "./pages";
-import "./App.css";
+import { Navigation } from "./components/Navigation/Navigation";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="books" element={<Books />} />
-    </Routes>
+    <Router>
+      <Navigation />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/books" component={Books} />
+      </Switch>
+    </Router>
   );
 }
 
